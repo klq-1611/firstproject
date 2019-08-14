@@ -1,4 +1,4 @@
 window.onload = function(){
     canv = document.getElementById("gc");
-    ctx
+    ctx = canv.getContext("2d");
 }
