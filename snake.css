@@ -1,0 +1,23 @@
+#score{
+    background-color: limegreen;
+    font-size: 50px;
+    color: white
+}
+
+#level{
+    background-color:violet;
+    font-size: 50px;
+    color: white;
+}
+.pad{
+    width: 100%;
+    /* background: lightblue; */
+    display: flex;
+    flex : 1;
+}
+.pad > div{
+    height: 100px;
+    width: 100%;
+    flex : 1;
+}
+

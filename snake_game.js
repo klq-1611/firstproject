@@ -2,14 +2,23 @@ window.onload=function() {
     canv=document.getElementById("gc");
     ctx=canv.getContext("2d");
     document.addEventListener("keydown",keyPush);
-    setInterval(game,1000/15);
+    if(!die){
+        setInterval(game,1000/15);
+    }
+    
 }
-px=py=10;
-gs=tc=20;
-ax=ay=15;
-xv=yv=0;
-trail=[];
-tail = 5;
+function init(){
+    level = 1
+    point = 0
+    px=py=5;
+    gs=tc=22;
+    ax=ay=15;
+    xv=yv=0;
+    trail=[];
+    tail = 5;
+    die = false
+}
+init()
 function game() {
     px+=xv;
     py+=yv;
@@ -28,11 +37,16 @@ function game() {
     ctx.fillStyle="black";
     ctx.fillRect(0,0,canv.width,canv.height);
  
-    ctx.fillStyle="lime";
+    ctx.fillStyle="purple";
     for(var i=0;i<trail.length;i++) {
         ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
         if(trail[i].x==px && trail[i].y==py) {
-            tail = 5;
+            tail = 3;
+            point = 0;
+            level = 1;
+            die = true
+            init()
+            // getElementById("announce").innerHTML = "THUA"
         }
     }
     trail.push({x:px,y:py});
@@ -41,12 +55,18 @@ function game() {
     }
  
     if(ax==px && ay==py) {
+        point ++;
         tail++;
         ax=Math.floor(Math.random()*tc);
         ay=Math.floor(Math.random()*tc);
     }
     ctx.fillStyle="red";
     ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+    document.getElementById("score").innerHTML = "Point:"+ point
+    document.getElementById("level").innerHTML = "Level:"+ level
+    if (point > 3){
+        level = Math.floor(point/3)
+    }
 }
 function keyPush(evt) {
     switch(evt.keyCode) {
@@ -62,5 +82,8 @@ function keyPush(evt) {
         case 40:
             xv=0;yv=1;
             break;
+    
     }
+    
 }
+console.log(trail)
