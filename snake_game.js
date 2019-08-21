@@ -1,12 +1,13 @@
+let gameLoop;
 window.onload=function() {
     canv=document.getElementById("gc");
     ctx=canv.getContext("2d");
     document.addEventListener("keydown",keyPush);
-    if(!die){
-        setInterval(game,1000/15);
-    }
     
+    gameLoop = setInterval(game,speed);
+    console.log(level)
 }
+// lol = 0
 function init(){
     level = 1
     point = 0
@@ -16,10 +17,15 @@ function init(){
     xv=yv=0;
     trail=[];
     tail = 5;
-    die = false
+    speed = 100
 }
 init()
+
 function game() {
+    if (point > 3){
+        level = Math.floor(point/3)
+       
+    }
     px+=xv;
     py+=yv;
     if(px<0) {
@@ -56,6 +62,12 @@ function game() {
     if(ax==px && ay==py) {
         point ++;
         tail++;
+
+        if(point % 3 == 1){
+            clearInterval(gameLoop)
+            speed -= 5;
+            gameLoop = setInterval(game,speed);
+        }
         ax=Math.floor(Math.random()*tc);
         ay=Math.floor(Math.random()*tc);
     }
@@ -63,10 +75,9 @@ function game() {
     ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
     document.getElementById("score").innerHTML = "Point:"+ point
     document.getElementById("level").innerHTML = "Level:"+ level
-    // document.getElementById("status").innerHTML = "Playing"
-    if (point > 3){
-        level = Math.floor(point/3)
-    }
+    // document.getElementById("status").innerHTML = Status + "Playing"
+    
+    
 }
 function keyPush(evt) {
     switch(evt.keyCode) {
