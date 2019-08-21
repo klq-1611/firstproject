@@ -23,6 +23,8 @@ window.onload=function() {
     gameLoop = setInterval(game,speed);
     console.log(level)
 }
+eatSound = new Audio("./bounce.mp3");
+deadSound = new Audio("./dead.mp3")
 // lol = 0
 function init(){
     level = 1
@@ -34,13 +36,11 @@ function init(){
     trail=[];
     tail = 5;
     speed = 100; 
-
 }
 init()
 
 function game() {
-    eatSound = new sound("bounce.mp3");
-    deadSound = new sound("dead.mp3")
+    
     if (point > 3){
         level = Math.floor(point/3)
        
@@ -65,20 +65,22 @@ function game() {
     ctx.fillStyle="purple";
     for(var i=0;i<trail.length;i++) {
         ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
-        if(trail[i].x==px && trail[i].y==py) {
-            deadSound.stop();
-            deadSound.play();
-           
-            init()
+    }
+    if(trail.length > 1){
+        for(var i=0;i<trail.length;i++) {
+            if(trail[i].x==px && trail[i].y==py) {
+                init()
+                eatSound.play();
+            }
         }
     }
+    
     trail.push({x:px,y:py});
     while(trail.length>tail) {
     trail.shift();
     }
  
     if(ax==px && ay==py) {
-        eatSound.stop();
         eatSound.play();
         
         point ++;
