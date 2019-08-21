@@ -1,3 +1,13 @@
+body{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40rem;
+  min-width: 30rem;
+  background: url("http://image.noelshack.com/fichiers/2017/51/2/1513702153-7006307-snake-minimalism-art.jpg");
+  background-size: cover;
+  background-position: right;
+}
 #score{
     background-color: limegreen;
     font-size: 50px;
@@ -25,4 +35,5 @@
     width: 100%;
     flex : 1;
 }
+
 
