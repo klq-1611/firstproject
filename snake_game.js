@@ -71,16 +71,24 @@ function game() {
 function keyPush(evt) {
     switch(evt.keyCode) {
         case 37:
-            xv=-1;yv=0;
+            if (xv != 1){
+                xv=-1;yv=0;
+            }
             break;
         case 38:
-            xv=0;yv=-1;
+            if (yv!=1) {
+                xv=0;yv=-1;
+            }
             break;
         case 39:
-            xv=1;yv=0;
+            if (xv!=-1) {
+                xv=1;yv=0;
+            }
             break;
         case 40:
-            xv=0;yv=1;
+            if (yv!=-1) {
+                xv=0;yv=1;
+            }
             break;
     
     }
