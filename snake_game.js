@@ -46,7 +46,6 @@ function game() {
             level = 1;
             die = true
             init()
-            // getElementById("announce").innerHTML = "THUA"
         }
     }
     trail.push({x:px,y:py});
@@ -64,6 +63,7 @@ function game() {
     ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
     document.getElementById("score").innerHTML = "Point:"+ point
     document.getElementById("level").innerHTML = "Level:"+ level
+    document.getElementById("status").innerHTML = "Playing"
     if (point > 3){
         level = Math.floor(point/3)
     }

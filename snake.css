@@ -9,6 +9,11 @@
     font-size: 50px;
     color: white;
 }
+#status{
+    background-color: red;
+    font-size: 50px;
+    color :white;
+}
 .pad{
     width: 100%;
     /* background: lightblue; */
