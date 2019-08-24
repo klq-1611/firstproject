@@ -10,18 +10,21 @@ body{
 }
 #score{
     background-color: lime;
-    font-size: 50px;
+    font-size: 74px;
     color: white;
     /* font-size: 2rem; */
     font-family: "Nova Mono", monospace;
+    text-align: center;
+
 }
 
 #level{
     background-color:lime;
-    font-size: 50px;
+    font-size: 74px;
     color: white;
     /* font-size: 2rem; */
     font-family: "Nova Mono", monospace;
+    text-align: center;
 }
 /* #status{
     background-color: red;
