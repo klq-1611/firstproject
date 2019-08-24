@@ -12,7 +12,7 @@ body{
     background-color: lime;
     font-size: 50px;
     color: white;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     font-family: "Nova Mono", monospace;
 }
 
@@ -20,7 +20,7 @@ body{
     background-color:lime;
     font-size: 50px;
     color: white;
-    font-size: 2rem;
+    /* font-size: 2rem; */
     font-family: "Nova Mono", monospace;
 }
 /* #status{
