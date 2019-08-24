@@ -70,7 +70,6 @@ function game() {
         for(var i=0;i<trail.length;i++) {
             if(trail[i].x==px && trail[i].y==py) {
                 init()
-                eatSound.play();
             }
         }
     }

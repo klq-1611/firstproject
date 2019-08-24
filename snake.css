@@ -9,23 +9,28 @@ body{
   background-position: right;
 }
 #score{
-    background-color: limegreen;
+    background-color: lime;
     font-size: 50px;
-    color: white
+    color: white;
+    font-size: 2rem;
+    font-family: "Nova Mono", monospace;
 }
 
 #level{
     background-color:lime;
     font-size: 50px;
     color: white;
+    font-size: 2rem;
+    font-family: "Nova Mono", monospace;
 }
-#status{
+/* #status{
     background-color: red;
     font-size: 50px;
     color :white;
-}
+} */
 .pad{
     width: 100%;
+    /* height: px; */
     /* background: lightblue; */
     display: flex;
     flex : 1;
