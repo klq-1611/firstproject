@@ -42,7 +42,7 @@ init()
 function game() {
     
     if (point > 3){
-        level = Math.floor(point/3)
+        level = Math.floor(point/3) + 1
        
     }
     px+=xv;
